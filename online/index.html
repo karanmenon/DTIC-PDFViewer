@@ -2,16 +2,31 @@
 <html manifest="./offline.appcache">
   <head>
     <link rel='stylesheet' href='./styles.css' type='text/css' media='all' />
+    <title>Offline Database</title>
   </head>
   <body>
-    <h1>Karan's Offline Document Database</h1>
+    <h1>Karan's Offline Document Dastabase</h1>
+    
+    <!-- File browing button: Disabled by resolve function in application.js-->
+    <!--
+    <form action="index.html">
+      <label for="file"> Choose a file: </label>
+      <input type="file" id="myFile" name="filename"/>
+      <input type="submit" value="submit" form = "form1"/>
+    </form>
+    -->
+
+    <!-- Type something text form, allows users to submit words to database-->
     <form>
       <input placeholder="Type something" />
     </form>
     <ul>
     </ul>
+
+    <!-- Scripts -->
     <script src="./indexeddb.shim.min.js"></script>
     <script src="./promise.js"></script>
     <script src="./application.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
