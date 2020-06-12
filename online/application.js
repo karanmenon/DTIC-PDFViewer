@@ -5,57 +5,100 @@
     .then(function() {
       input = document.querySelector('input');
       ul = document.querySelector('ul');
-      document.body.addEventListener('submit', onSubmit);
-      document.body.addEventListener('click', onClick);
+      document.body.addEventListener('submit', onSubmit); //when submit is clicked run function on submit
+      document.body.addEventListener('click', onClick);  //when delete button is clicked run onClick function
+      document.body.addEventListener('click', onView); //When view button is clicked
       // alert("The database has been opened");
     })
-    .then(refreshView);
-   
-  function onClick(e) {
+    .then(refreshView); //make new item visible
 
-    // We'll assume that any element with an ID
-    // attribute is a to-do item. Don't try this at home!
-    e.preventDefault();
-    if (e.target.hasAttribute('id')) {
-      databaseTodosGetById(e.target.getAttribute('id'))
-        .then(function(todo) {
-          return databaseTodosDelete(todo);
+    /*Function called at the begining to open the database */
+    function databaseOpen() { 
+      return new Promise(function(resolve, reject) {
+        var version = 1;
+        var request = indexedDB.open('todos', version);
+  
+        // Run migrations if necessary
+        request.onupgradeneeded = function(e) {
+          db = e.target.result;
+          e.target.transaction.onerror = reject;
+          db.createObjectStore('todo', { keyPath: '_id' });
+        }; 
+  
+        request.onsuccess = function(e) {
+          db = e.target.result;
+          resolve(); //This line does not allow us to open/upload files.
+        }; 
+        request.onerror = reject;
+      }); 
+    }
+
+  /*Retrieve an image file as a blob
+  var xhr = new XMLHttpRequest(),
+    blob;
+  
+  xhr.open("GET", "elephant.png", true); //change this for testing
+  //set responseType to blob
+  xhr.responseType = "blob";
+  
+  xhr.addEventListener("load", function(){
+    if(xhr.status === 200){
+      console.log("File retrieved");
+      blob = xhr.response; //File as response;
+      putTodoInDb(blob);  // Put the recieved blob into IndexedDB    
+    }
+  }, false);
+  xhr.send //send XHR
+  /*End of Retrieve an image file as a blob*/
+
+  /*Start of putTodoInDB function
+  putTodoInDb 
+ */
+
+  /* Delete button*/
+  function onClick(e) { 
+    // We'll assume that any element with an ID attribute is a to-do item. Don't try this at home!
+    e.preventDefault(); 
+    if (e.target.hasAttribute('id')) { 
+      databaseTodosGetById(e.target.getAttribute('id')) //gets item by id
+        .then(function(todo) { 
+          return databaseTodosDelete(todo); //runs databaseTodosDelete function
         })
-        .then(refreshView);
+        .then(refreshView); //refresh page and makes doc go bye bye
     }
   }
 
-  function onSubmit(e) {
-    e.preventDefault();
-    var todo = { text: input.value, _id: String(Date.now()) };
-    databaseTodosPut(todo)
+  /*Submit Button*/
+  function onSubmit(e) { 
+    e.preventDefault(); //safety
+    var todo = { text: input.value, _id: String(Date.now()) }; //creates a todo value
+    databaseTodosPut(todo) //Runs databaseTodosPut (i think this puts the value in the database) on todo
       .then(function() {
         input.value = '';
       })
       .then(refreshView);
   }
 
+  /* View Button */
+  function onView(e){
+    e.preventDefault(); 
+    console.log(e.target.class); //currently undefined
+    if (e.target.class == viewer) {  //if button is a view button, view
+      alert("alert 2");
+      databaseTodosGetById(e.target.getAttribute('id')) //gets item by id
+        .then(function(todo) { 
+          return databaseTodosView(todo); 
+        })
+    }
+  }
+
+  /* Makes the pdf viewed*/
+  function databaseTodosView(todo){
+    alert('pressed');
+  };
 
   
-  function databaseOpen() { 
-    return new Promise(function(resolve, reject) {
-      var version = 1;
-      var request = indexedDB.open('todos', version);
-
-      // Run migrations if necessary
-      request.onupgradeneeded = function(e) {
-        db = e.target.result;
-        e.target.transaction.onerror = reject;
-        db.createObjectStore('todo', { keyPath: '_id' });
-      }; 
-
-      request.onsuccess = function(e) {
-        db = e.target.result;
-        resolve(); //This line does not allow us to open/upload files.
-      }; 
-      request.onerror = reject;
-    }); 
-  }
+  
   
 
 //all changes to IndexedDB must be wrapped in a transaction
@@ -109,11 +152,13 @@ function databaseTodosGet() {
     ul.innerHTML = html;
   }
 
+  //This is what creates the visual todo, these atributes will be useful later
   function todoToHtml(todo) {
-    return '<li><button id="'+todo._id+'">delete</button>'+todo.text+'</li>';
+    return '<li><button id="'+todo._id+'">delete</button>'+todo.text+' <button class="viewer">view</button> </li>';
   } 
 
-  function databaseTodosGetById(id) {
+
+  function databaseTodosGetById(id) { 
     return new Promise(function(resolve, reject) {
       var transaction = db.transaction(['todo'], 'readwrite');
       var store = transaction.objectStore('todo');
@@ -126,6 +171,7 @@ function databaseTodosGet() {
     });
   }
 
+  /*Deletes todo from database, associated with onclick" */
   function databaseTodosDelete(todo) {
     return new Promise(function(resolve, reject) {
       var transaction = db.transaction(['todo'], 'readwrite');
@@ -135,6 +181,7 @@ function databaseTodosGet() {
       request.onerror = reject;
     });
   }
+  
 
 
 }());

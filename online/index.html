@@ -5,28 +5,29 @@
     <title>Offline Database</title>
   </head>
   <body>
-    <h1>Karan's Offline Document Dastabase</h1>
-    
-    <!-- File browing button: Disabled by resolve function in application.js-->
-    <!--
-    <form action="index.html">
-      <label for="file"> Choose a file: </label>
-      <input type="file" id="myFile" name="filename"/>
-      <input type="submit" value="submit" form = "form1"/>
-    </form>
-    -->
+    <h1>Karan's Offline Document Database</h1>
 
     <!-- Type something text form, allows users to submit words to database-->
     <form>
       <input placeholder="Type something" />
     </form>
+
+    <!-- List of items -->
     <ul>
     </ul>
+
+    <!-- File browing button: Disabled by resolve function in application.js-->
+    <form action="index.html">
+      <label for="file"> Choose a file: </label>
+      <input type="file" id="myFile" name="filename"/>
+      <input type="submit" value="submit" form = "form1"/>
+    </form>
 
     <!-- Scripts -->
     <script src="./indexeddb.shim.min.js"></script>
     <script src="./promise.js"></script>
     <script src="./application.js"></script>
     <script src="./main.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
   </body>
 </html>

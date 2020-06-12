@@ -1,4 +1,5 @@
-const url = '..\\docs\\Resume.pdf';
+var myRequest = new Request('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf');
+console.log(myRequest.mode);
 
 let pdfDoc = null,
   pageNum = 1,
@@ -68,7 +69,7 @@ const showNextPage = () => {
 
 // Get Document
 pdfjsLib
-  .getDocument(url)
+  .getDocument(myRequest)
   .promise.then(pdfDoc_ => {
     pdfDoc = pdfDoc_;
 
