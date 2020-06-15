@@ -3,6 +3,7 @@ CACHE MANIFEST
 ./styles.css
 ./indexeddb.shim.min.js
 ./promise.js
+./fetch.js
 ./application.js
 
 NETWORK:

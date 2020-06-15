@@ -1,5 +1,5 @@
 // Code adapted from https://www.youtube.com/watch?v=ydCSSgwZjzs
-const url = '..\\docs\\pdf2.pdf';
+const url = '/../docs/pdf2.pdf';
 
 let pdfDoc = null,
     pageNum = 1,
