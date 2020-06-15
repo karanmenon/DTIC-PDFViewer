@@ -33,28 +33,6 @@
       }); 
     }
 
-  /*Retrieve an image file as a blob
-  var xhr = new XMLHttpRequest(),
-    blob;
-  
-  xhr.open("GET", "elephant.png", true); //change this for testing
-  //set responseType to blob
-  xhr.responseType = "blob";
-  
-  xhr.addEventListener("load", function(){
-    if(xhr.status === 200){
-      console.log("File retrieved");
-      blob = xhr.response; //File as response;
-      putTodoInDb(blob);  // Put the recieved blob into IndexedDB    
-    }
-  }, false);
-  xhr.send //send XHR
-  /*End of Retrieve an image file as a blob*/
-
-  /*Start of putTodoInDB function
-  putTodoInDb 
- */
-
   /* Delete button*/
   function onClick(e) { 
     // We'll assume that any element with an ID attribute is a to-do item. Don't try this at home!
