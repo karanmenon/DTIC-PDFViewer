@@ -34,8 +34,8 @@
   }
 
 
-
-  function databaseOpen() {
+  
+  function databaseOpen() { 
     return new Promise(function(resolve, reject) {
       var version = 1;
       var request = indexedDB.open('todos', version);
@@ -45,15 +45,17 @@
         db = e.target.result;
         e.target.transaction.onerror = reject;
         db.createObjectStore('todo', { keyPath: '_id' });
-      };
+      }; 
 
       request.onsuccess = function(e) {
         db = e.target.result;
-        resolve();
-      };
+        resolve(); //This line does not allow us to open/upload files.
+      }; 
       request.onerror = reject;
-    });
+    }); 
   }
+  
+
 //all changes to IndexedDB must be wrapped in a transaction
 function databaseTodosPut(todo) {
     return new Promise(function(resolve, reject) {
