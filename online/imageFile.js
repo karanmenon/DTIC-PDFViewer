@@ -10,6 +10,7 @@ var db;
 //if the request goes through successfully
 request.onsuccess = function (event) {
     console.log("Success creating/accessing IndexedDB database");
+    alert(request.result);
     db = request.result;
     db.onerror = function (event) {
         console.log("Error creating/accessing IndexedDB database");
@@ -58,7 +59,7 @@ function openXhr(event){
     //Retrieve image as a blob
     var xhr = new XMLHttpRequest(),
     blob;
-
+    alert("step 1");
     xhr.open("GET", "elephant.jpg", true);
     xhr.responseType = "blob"; //set response type to blob
 
@@ -71,6 +72,7 @@ function openXhr(event){
         putElephantInDb(blob); // Put the recieved blob into IndexedDb
     }
     }, false);
+    xhr.send();
 }
 
 openXhr();
