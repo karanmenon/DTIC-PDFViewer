@@ -1,3 +1,5 @@
+// Code adapted from https://hacks.mozilla.org/2012/02/storing-images-and-files-in-indexeddb/
+
 // IndexedDB
 window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
     IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction,
