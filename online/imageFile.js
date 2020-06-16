@@ -53,9 +53,6 @@ request.onerror = function (event) {
 };
 
 
-alert("reached end");
-
-
 // Not called yet because I don't know where to put it.
 function openXhr(event){
     //Retrieve image as a blob
@@ -74,12 +71,20 @@ function openXhr(event){
         putElephantInDb(blob); // Put the recieved blob into IndexedDb
     }
     }, false);
+
+    console.log("Sending xhr...")
     xhr.send();
+    
+    // Open a transaction to the database
+    console.log("transaction occuring...")
+    var transaction = db.transaction(["elephants"], IDBTransaction.READ_WRITE);
+
+    // Put the blob into the database
+    console.log("file storing...")
+    transaction.objectStore("elephants").put(blob, "image");
 }
 
 openXhr();
-
-
 
 
 
