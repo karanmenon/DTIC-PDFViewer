@@ -1,0 +1,8 @@
+#the-pdf{
+    width:100%;
+    height: 100%;
+    overflow: auto;
+    background:#333;
+    text-align:center;
+    border:3px solid;
+}

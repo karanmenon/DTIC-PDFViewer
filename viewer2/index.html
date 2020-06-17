@@ -1,103 +1,31 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>PDF Viewer Attempt 2</title>
-	</head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf_viewer.js"> 
-	</script>
+<head>
+	<title>PDF Viewer Attempt 2</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
 
-	<style>
-		#canvas_container{
-			width:1250px;
-			height: 450px;
-			overflow: auto;
-			background:#333;
-			text-align:center;
-			border:3px solid;
-		}
-	</style>
-	<body>
-		<div id="my_pdf_viewer">
-			<div id="canvas_container">
-				<canvas id="pdf_renderer"></canvas>
-			</div>
-			<div id="navigation-controls">
-				<button id="go_previous">Previous</button>
-				<input type="number" value="1" id="current_page">
-				<button id="go_next">Next</button>		
-			</div>
-			<div id="zoom-controls">
-				<button id="zoom_in">+</button>
-				<button id="zoom_out">-</button>
-			</div>
-		</div>
-	</body>
-	<script>
-		var myState={
-			pdf:null,
-			currentPage:1,
-			zoom:1
-		}
-		//var pdfjsLib = window['pdfjs-dist/build/pdf'];
-		pdfjsLib.getDocument("pdf.pdf").then(pdf=>{
-			myState.pdf=pdf
-			render()
-		})
-		function render()
-		{
-			myState.pdf.getPage(myState.currentPage).then(page=>{
-				var canvas= document.getElementById("pdf_renderer")
-				var ctx = canvas.getContext("2d")
-				var viewport=page.getViewport(myState.zoom)
-				canvas.width=viewport.width;
-				canvas.height=viewport.height;
-				//rendering the page
-				page.render({
-					canvasContext:ctx,
-					viewport:viewport
-				})
-			})
-		}
-		document.getElementById('go_previous').addEventListener('click', (e)=>{
-			if(myState.pdf==null || myState.currentPage==1) return;
-			myState.currentPage= myState.currentPage-1;
-			document.getElementById("current_page").value=myState.currentPage;
-			render()
-		})
-		document.getElementById('go_next').addEventListener('click', (e)=>{
-			if(myState.pdf==null || myState.currentPage>myState.pdf._pdfInfo.numPages) return;
-			myState.currentPage= myState.currentPage+1;
-			document.getElementById("current_page").value=myState.currentPage;
-			render()
-		})
-		document.getElementById("current_page").addEventListener('keypress',(e)=>{
-			if(myState.pdf=null) return;
-			var code=(e.keyCode ? e.keyCode : e.which)
+<body>
+	<h1>PDF.js Previous/Next example</h1>
 
-			jf(code==13)
-			{
-				var desiredPage=document.getElementById("current_page").valueAsNumber
-				if(desiredPage>=1 && desiredPage<=myState.pdf._pdfInfo.numPages)
-				{
-					myState.currentPage=desiredPage
-					document.getElementById("current_page").value=desiredPage
-					render()
-				}
-			}
-		})
+	<div>
+	<button id="prev">Previous</button>
+	<button id="next">Next</button>
+	&nbsp; &nbsp;
 
-		document.getElementById("zoom_in").addEventListener('click', (e)=>{
-			if(myState.pdf==null)return;
-			myState.zoom=myState.zoom+0.5
-			render()
-		})
-		document.getElementById("zoom_out").addEventListener('click', (e)=>{
-			if(myState.pdf==null)return;
-			myState.zoom=myState.zoom-0.5
-			render()
-		})
 
-	</script>
+	<span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+	</div>
+
+	<p id="log">hi</p>
+
+
+	<canvas id="the-pdf"></canvas>
+
+	<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/keystrokes.js"></script>
+</body>
 </html>
 
 
