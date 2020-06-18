@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PDF Viewer Attempt 2</title>
+	</head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf_viewer.js"> 
+	</script>
+
+	<script data-main="script.js" src="require.js"></script>
+	<style>
+		#canvas_container{
+			width:1250px;
+			height: 450px;
+			overflow: auto;
+			background:#333;
+			text-align:center;
+			border:3px solid;
+		}
+	</style>
+	<body>
+		<div id="my_pdf_viewer">
+			<div id="canvas_container">
+				<canvas id="pdf_renderer"></canvas>
+			</div>
+			<div id="navigation-controls">
+				<button id="go_previous">Previous</button>
+				<input type="number" value="1" id="current_page">
+				<button id="go_next">Next</button>		
+			</div>
+			<div id="zoom-controls">
+				<button id="zoom_in">+</button>
+				<button id="zoom_out">-</button>
+			</div>
+		</div>
+	</body>
+	<script> src="script.js" </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
