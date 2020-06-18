@@ -5,7 +5,7 @@
 // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
 var url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'; //works with this internet pdf
-url = 'pdf.pdf'; // Works with local pdf
+//url = 'pdf.pdf'; // Works with local pdf
 // https://apps.dtic.mil/sti/pdfs/ADA182771.pdf  is a sample dtic pdf (currently does not work)
 
 
@@ -13,8 +13,9 @@ url = 'pdf.pdf'; // Works with local pdf
 // Loaded via <script> tag, create shortcut to access PDF.js exports.
 var pdfjsLib = window['pdfjs-dist/build/pdf'];
 
+
 // The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://mozilla.github.io/pdf.js/build/pdf.worker.js';
 
 var pdfDoc = null,
     pageNum = 1,
@@ -104,3 +105,14 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   // Initial/first page rendering
   renderPage(pageNum);
 });
+
+/**
+ * Zoom in
+ */
+function zoomIn() {
+  var pdf = document.getElementById("the-pdf");
+  console.log(pdf.style.width);
+  pdf.style.width += "10%";
+  console.log(pdf.style.width);
+}
+document.getElementById('zoom-in').addEventListener('click', zoomIn);
