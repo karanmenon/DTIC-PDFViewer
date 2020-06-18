@@ -41,7 +41,7 @@ function logKey(e) {
     Prevents "Cmd + Keys" on Mac
     I am not sure if this works yet. Karan will test on his computer.
     */
-    if (keys[0].localeCompare("CommandLeft") == 0||keys[0].localeCompare("CommandRight")==0){
+    if (keys[0].localeCompare("MetaLeft") == 0||keys[0].localeCompare("MetaRight")==0){
         if(keys[1].localeCompare("KeyS")==0){ //Command + S (Save on mac)
             alert("Cmd+S Pressed");
             e.preventDefault();
