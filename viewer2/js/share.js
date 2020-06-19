@@ -13,9 +13,7 @@ Todo:
 function sharePDF(){
     var box = document.getElementById("share-box");
     box.style.visibility = "visible";
-    console.log(sharelink.textcontent);
-    sharelink.textcontent = "Share link: ";
-    console.log(sharelink.textcontent);
+    $("#input").val("bye");
 }
 document.getElementById('share').addEventListener('click', sharePDF);
 
@@ -27,3 +25,13 @@ function closeShare(){
     console.log(sharelink.textcontent);
 }
 document.getElementById('share-close').addEventListener('click', closeShare);
+
+// Code adapated from https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+function copyLink(){
+    var copyText = document.getElementById("sharelink"); //Get link
+    copyText.select();
+    copyText.setSelectionRange(0,99999); // For mobile devices?
+    document.execCommand("copy");
+    alert("Copited the text: " + copyText.value);
+    
+};

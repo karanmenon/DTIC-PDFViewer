@@ -4,7 +4,6 @@
 	<title>PDF Viewer Attempt 2</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 	<h1>PDF Name</h1>
 
@@ -24,18 +23,31 @@
 	<!-- Displays the array of keys, For demonstation purposes only-->
 	<p id="log">hi</p>
 	
+	<!-- Taken from https://www.addtoany.com/buttons/for/website -->
 	<div id="share-box">
 		<button id="share-close" style="float:right;">X</button>
-		<p id="sharelink">error</p>
+		<h2>Share!</h2>
+		<input type= "text" value=hi id="sharelink">
+		<button onclick="copyLink()">Copy link</button>
+		<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-title="PDF Share">
+			<!--<a class="a2a_dd" href="https://www.addtoany.com/share"></a> This is the code to give you UNLIMITED options,
+				but I only want email for now -->
+			<a class="a2a_button_outlook_com"></a>
+			<a class="a2a_button_google_gmail"></a>
+			<a class="a2a_button_yahoo_mail"></a>
+			<a class="a2a_button_email"></a>
+		</div>
 	</div>
 
 
 	<canvas id="the-pdf"></canvas>
 
-	<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/keystrokes.js"></script>
-	<script src="js/share.js"></script>
+
+	<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script> <!--The PDF Viewer JS-->
+	<script src="js/main.js"></script><!--The main site functionality and PDF rendering JS-->
+	<script src="js/keystrokes.js"></script> <!-- The Keystroke limiter JS-->
+	<script src="js/share.js"></script> <!--The share box JS-->
+	<script async src="https://static.addtoany.com/menu/page.js"></script> <!-- The share by email button JS-->
 </body>
 </html>
 

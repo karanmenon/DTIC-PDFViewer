@@ -35,6 +35,10 @@ function logKey(e) {
             alert("Ctrl+C Pressed");
             e.preventDefault();
         }
+        if(keys[1].localeCompare("KeyA")==0){ //Ctrl + A (Copy All on Windows)
+            alert("Ctrl+A Pressed");
+            e.preventDefault();
+        }
     }
 
     /*
@@ -52,6 +56,10 @@ function logKey(e) {
         }
         if(keys[1].localeCompare("KeyC")==0){ //Command + C (Copy on mac)
             alert("Cmd+C Pressed");
+            e.preventDefault();
+        }
+        if(keys[1].localeCompare("KeyA")==0){ //Command + A (Copy All on mac)
+            alert("Cmd+A Pressed");
             e.preventDefault();
         }
 }
