@@ -13,7 +13,7 @@ Todo:
 function sharePDF(){
     var box = document.getElementById("share-box");
     box.style.visibility = "visible";
-    $("#input").val("bye");
+    $("input").val("bye");
 }
 document.getElementById('share').addEventListener('click', sharePDF);
 
@@ -31,7 +31,5 @@ function copyLink(){
     var copyText = document.getElementById("sharelink"); //Get link
     copyText.select();
     copyText.setSelectionRange(0,99999); // For mobile devices?
-    document.execCommand("copy");
-    alert("Copited the text: " + copyText.value);
-    
+    document.execCommand("copy");   
 };
