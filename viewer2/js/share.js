@@ -1,6 +1,7 @@
 /* This contains the functionality for all of the share box 
 Features:
 - Opens/closes on button click
+- share link with any email platform, sends 
 
 
 Todo:
@@ -13,7 +14,10 @@ Todo:
 function sharePDF(){
     var box = document.getElementById("share-box");
     box.style.visibility = "visible";
-    $("input").val("bye");
+    var link = window.location.href;
+    console.log(link);
+    var inputLink = document.getElementById("sharelink")
+    inputLink.value = link;
 }
 document.getElementById('share').addEventListener('click', sharePDF);
 
