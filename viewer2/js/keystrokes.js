@@ -7,7 +7,6 @@ Features:
 
 Todos:
 - Disable right click commands
-- disable keystrokes for mac/linux
 */
 
 // 
@@ -64,3 +63,5 @@ function logKey(e) {
         }
 }
 }
+
+document.addEventListener('contextmenu', event => event.preventDefault());

@@ -3,8 +3,8 @@
 
 // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
-var url = 'https://eca.orc.com/wp-content/uploads/ECA_Docs/instructions_med_token_assurance.pdf'; //works with this internet pdf
-url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'
+var url = 'https://eca.orc.com/wp-content/uploads/ECA_Docs/instructions_med_token_assurance.pdf'; //CORS doc
+url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf' //non CORS doc
 //url = 'pdf.pdf'; // Works with local pdf on live server but not on local
 // https://apps.dtic.mil/sti/pdfs/ADA182771.pdf  is a sample dtic pdf (currently does not work)
 
