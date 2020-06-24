@@ -13,6 +13,10 @@ Windows Screenshot Keystrokes
 - PrtScn, Alt+PrtScn, Window's+ PrtScn
 - Window's+Shift+S
 
+Mac Screenshot Keystrokes
+- Shift+cmd+3/4
+- shift+cmd+4+space
+- shift+cmd+5
 */
 
 // 
@@ -78,7 +82,7 @@ function logKey(e) {
             }
             if (keys[2].localeCompare("KeyS")==0){
                 alert("Cmd + Shift + S Pressed"); //Disables a screenshot on windows
-                e.preventDefault();
+                e.preventDefault(); //Registers but doesnt disable
             }
         }
     }
