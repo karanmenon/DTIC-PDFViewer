@@ -292,16 +292,69 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <button>Share</button>
+
+  <!-- Rotate Left -->
+  <span
+  [inlineSVG]="'/assets/icon/baseline-rotate_left-24px.svg'"
+  (click)="rotate(-90)"
+  title="Rotate Left"
+  ></span>
+  <!-- Rotate Right-->
+  <span
+    [inlineSVG]="'/assets/icon/baseline-rotate_right-24px.svg'"
+    (click)="rotate(90)"
+    title="Rotate Right"
+  ></span>
+
+  <!-- Zoom in -->
+  <span
+    [inlineSVG]="'/assets/icon/baseline-zoom_in-24px.svg'"
+    (click)="incrementZoom(0.1)"
+    title="Zoom In"
+  ></span>
+  <!-- Zoom Out -->
+  <span
+    [inlineSVG]="'/assets/icon/baseline-zoom_out-24px.svg'"
+    (click)="incrementZoom(-0.1)"
+    title="Zoom Out"
+  ></span>
+
+  <!-- Local File Selector -->
+  <input
+    (change)="onFileSelected()"
+    type="file"
+    accept=".pdf"
+  />
+  <label
+    class="my-icon ml-auto"
+    [inlineSVG]="'/assets/icon/baseline-search-24px.svg'"
+    for="searchbox"
+    title="Search.."
+  ></label>
+  <input
+    #queryInp
+    type="text"
+    id="searchbox"
+    name="searchbox"
+    class="searchbox mr-5"
+    placeholder="Search..."
+    [value]="pdfQuery"
+    (input)="searchQueryChanged($event.target.value)"
+    (keyup.enter)="searchQueryChanged(queryInp.value)"
+  />
+
 </div>
 
 <div class="content" role="main">
   <h1>PDF Name</h1>
+  <!-- Displays the array of keys, For demonstation purposes only-->
+	<p id="log">log error</p>
   <pdf-viewer
   [src]="pdfSrc"
   [render-text]="true"
+  [rotation]="rotation"
+  [zoom] = "zoom"
   style="display: block;">
-    
   </pdf-viewer>
 </div>
 
