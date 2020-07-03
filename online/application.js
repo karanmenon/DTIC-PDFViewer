@@ -1,5 +1,6 @@
-(function() {
+  (function() {
   var db, input, ul;
+  window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
   databaseOpen()
     .then(function() {
@@ -7,7 +8,7 @@
       ul = document.querySelector('ul');
       document.body.addEventListener('submit', onSubmit); //when submit is clicked run function on submit
       document.body.addEventListener('click', onClick);  //when delete button is clicked run onClick function
-      document.body.addEventListener('click', onView); //When view button is clicked
+      //document.body.addEventListener('click', onView); //When view button is clicked
       // alert("The database has been opened");
     })
     .then(refreshView); //make new item visible
@@ -38,9 +39,9 @@
     // We'll assume that any element with an ID attribute is a to-do item. Don't try this at home!
     e.preventDefault(); 
     if (e.target.hasAttribute('id')) { 
-      databaseTodosGetById(e.target.getAttribute('id')) //gets item by id
+      databaseGetById(e.target.getAttribute('id')) //gets item by id
         .then(function(todo) { 
-          return databaseTodosDelete(todo); //runs databaseTodosDelete function
+          return databaseDelete(todo); //runs databaseTodosDelete function
         })
         .then(refreshView); //refresh page and makes doc go bye bye
     }
@@ -50,37 +51,37 @@
   function onSubmit(e) { 
     e.preventDefault(); //safety
     var todo = { text: input.value, _id: String(Date.now()) }; //creates a todo value
-    databaseTodosPut(todo) //Runs databaseTodosPut (i think this puts the value in the database) on todo
+    databasePut(todo) //Runs databaseTodosPut (i think this puts the value in the database) on todo
       .then(function() {
         input.value = '';
       })
       .then(refreshView);
   }
 
-  /* View Button */
+  /* View Button 
   function onView(e){
     e.preventDefault(); 
     console.log(e.target.class); //currently undefined
     if (e.target.class == viewer) {  //if button is a view button, view
       alert("alert 2");
-      databaseTodosGetById(e.target.getAttribute('id')) //gets item by id
+      databaseGetById(e.target.getAttribute('id')) //gets item by id
         .then(function(todo) { 
-          return databaseTodosView(todo); 
+          return databaseView(todo); 
         })
     }
   }
 
-  /* Makes the pdf viewed*/
-  function databaseTodosView(todo){
+   Makes the pdf viewed */ /*
+  function databaseView(todo){
     alert('pressed');
   };
 
-  
-  
+}
+*/
   
 
 //all changes to IndexedDB must be wrapped in a transaction
-function databaseTodosPut(todo) {
+function databasePut(todo) {
     return new Promise(function(resolve, reject) {
       var transaction = db.transaction(['todo'], 'readwrite');
       var store = transaction.objectStore('todo');
@@ -90,7 +91,7 @@ function databaseTodosPut(todo) {
     });
   }
 
-function databaseTodosGet() {
+function databaseGet() {
     return new Promise(function(resolve, reject) {
       var transaction = db.transaction(['todo'], 'readonly');
       var store = transaction.objectStore('todo');
@@ -105,7 +106,7 @@ function databaseTodosGet() {
       cursorRequest.onsuccess = function(e) {
         var result = e.target.result;
 
-        // If there's data, add it to array
+        // If there's daa, add it to array
         if (result) {
           data.push(result.value);
           result.continue();
@@ -119,7 +120,7 @@ function databaseTodosGet() {
   }
 
     function refreshView() {
-    return databaseTodosGet().then(renderAllTodos);
+    return databaseGet().then(renderAllTodos);
   }
 
   function renderAllTodos(todos) {
@@ -136,7 +137,7 @@ function databaseTodosGet() {
   } 
 
 
-  function databaseTodosGetById(id) { 
+  function databaseGetById(id) { 
     return new Promise(function(resolve, reject) {
       var transaction = db.transaction(['todo'], 'readwrite');
       var store = transaction.objectStore('todo');
@@ -150,7 +151,7 @@ function databaseTodosGet() {
   }
 
   /*Deletes todo from database, associated with onclick" */
-  function databaseTodosDelete(todo) {
+  function databaseDelete(todo) {
     return new Promise(function(resolve, reject) {
       var transaction = db.transaction(['todo'], 'readwrite');
       var store = transaction.objectStore('todo');
