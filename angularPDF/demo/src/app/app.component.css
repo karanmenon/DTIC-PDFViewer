@@ -1,0 +1,11 @@
+#share{
+    background-color:yellow;
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    z-index: 5;
+    overflow: auto;
+    top: 25%;
+    left: 25%;
+    visibility: hidden;
+}

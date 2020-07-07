@@ -62,5 +62,16 @@ export class AppComponent {
   incrementZoom(amount: number) {
     this.zoom += amount;
   }
+
+  shareBox(){
+    var box = document.getElementById("share");
+    box.style.visibility = "visible";
+  }
+
+  closeShare(){
+    var box = document.getElementById("share");
+    box.style.visibility = "hidden";
+  }
+
 }
  
