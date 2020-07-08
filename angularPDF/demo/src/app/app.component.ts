@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -63,14 +63,34 @@ export class AppComponent {
     this.zoom += amount;
   }
 
+  /**
+   * openst he share box when share button is clicked in the tool bar
+   */
   shareBox(){
     var box = document.getElementById("share");
     box.style.visibility = "visible";
   }
 
+  /**
+   * Closes the share box when x button is clicked
+   */
   closeShare(){
     var box = document.getElementById("share");
     box.style.visibility = "hidden";
+  }
+
+
+  /**
+   * This is the funtion the turns off keystrokes
+   * - Currently turns off the whole keyboard, but I think I can simlipfy to certain keystrokes if needed.
+   * @param event This key that is input by the keyboard registers as a keyboard event
+   */
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+
+  console.log(event);
+   event.returnValue = false;
+   event.preventDefault();
   }
 
 }
