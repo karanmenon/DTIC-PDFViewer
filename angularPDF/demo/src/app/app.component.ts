@@ -21,6 +21,7 @@ export class AppComponent {
   //Add more variable here (for the buttons)
   rotation = 0;
   zoom = 1.0;
+  name = 'ngx-sharebuttons';
 
   /** 
    * Function that allows the user to view a local file using the viewer
@@ -69,6 +70,9 @@ export class AppComponent {
   shareBox(){
     var box = document.getElementById("share");
     box.style.visibility = "visible";
+    var nLink= window.location.href;
+    var cLink = document.getElementById("sharelink") as HTMLInputElement;
+    cLink.value = nLink;
   }
 
   /**
@@ -87,11 +91,20 @@ export class AppComponent {
    */
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-
   console.log(event);
    event.returnValue = false;
    event.preventDefault();
   }
+
+  /**
+   * This Function disables right click only contact class div (where the PDF is)
+   * @param event 
+   */
+  onRightClick(event) {
+    event.preventDefault();
+  }
+
+  
 
 }
  

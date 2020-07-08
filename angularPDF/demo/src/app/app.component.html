@@ -43,15 +43,6 @@
     margin: 0 16px;
   }
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-
   .content {
     display: flex;
     margin: 82px auto 32px;
@@ -115,13 +106,6 @@
     title="Zoom Out"
   ></span>
 
-  <!-- Local File Selector -->
-  <input
-    (change)="onFileSelected()"
-    type="file"
-    accept=".pdf"
-  />
-
   <!-- Share Button -->
   <button (click)= shareBox()> 
     Share
@@ -129,7 +113,7 @@
 
 </div>
 
-<div class="content" role="main" style="z-index: 0;">
+<div class="content" role="main" style="z-index: 0;" (contextmenu)="onRightClick($event)">
   <h1>PDF Name</h1>
   <pdf-viewer
   [src]="pdfSrc"
@@ -143,20 +127,12 @@
 <div id="share">
   <button id="share-close" (click)=closeShare() style="float:right;">X</button>
   <h2>Share!</h2>
-  <input type= "text" value=www.google.com id="sharelink">
-  <button onclick="copyLink()">Copy link</button>
-  <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-title="PDF Share">
-    <!--<a class="a2a_dd" href="https://www.addtoany.com/share"></a> This is the code to give you UNLIMITED options,
-      but I only want email for now -->
-    <a class="a2a_button_outlook_com"></a>
-    <a class="a2a_button_google_gmail"></a>
-    <a class="a2a_button_yahoo_mail"></a>
-    <a class="a2a_button_email"></a>
+  <input type= "text" value=error id="sharelink">
+  <share-button [theme]="'material-dark'" [button]="'copy'"></share-button>
+  <div>
+    <share-button button="email"></share-button>
   </div>
   <p>Disclaimer: PDF only visable by those with access to distribution statement _ because ...</p>
 </div>
 
-
 <router-outlet></router-outlet>
-
-<script async src="https://static.addtoany.com/menu/page.js"></script> <!-- The share by email button JS-->
