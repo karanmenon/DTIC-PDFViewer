@@ -19,6 +19,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   zoom = 1.0; // the degree of zoom, default degree is 0
   name = 'ngx-sharebuttons';
   showAll= true;
+  page = 1;
 
   /** 
    * Function that allows the user to view a local file using the viewer
@@ -100,6 +101,10 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
    */
   onRightClick(event) {
     event.preventDefault();
+  }
+
+  incrementPage(number) {
+    this.page += number;
   }
 }
  

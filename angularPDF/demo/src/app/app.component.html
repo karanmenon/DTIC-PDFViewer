@@ -37,10 +37,33 @@
     title="Toggle Show All"
   ></span>
 
+  <ng-container *ngIf="!showAll">
+    <span
+      class="my-icon ml-auto"
+      [inlineSVG]="'/assets/icon/baseline-navigate_before-24px.svg'"
+      (click)="incrementPage(-1)"
+      title="Previous Page"
+    ></span>
+    <div>
+      <input
+        type="number"
+        class="page-num"
+        placeholder="Page"
+        [(ngModel)]="page"
+        pattern="-?[0-9]*(\.[0-9]+)?"
+      />
+      <span *ngIf="pdf">of {{ pdf.numPages }}</span>
+    </div>
+    <span
+      class="my-icon"
+      [inlineSVG]="'/assets/icon/baseline-navigate_next-24px.svg'"
+      (click)="incrementPage(1)"
+      title="Next Page"
+    ></span>
+  </ng-container>
+
   <!-- Share Button -->
-  <button (click)= shareBox()> 
-    Share
-  </button>
+  <button (click)= shareBox()>Share</button>
 
 </div>
 
@@ -51,6 +74,7 @@
   [rotation]="rotation"
   [zoom] = "zoom"
   [show-all] = "showAll"
+  [(page)]="page"
   style="display: block;">
   </pdf-viewer>
 </div>
