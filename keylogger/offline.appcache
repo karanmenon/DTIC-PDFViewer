@@ -1,9 +1,0 @@
-CACHE MANIFEST
-# v2
-./styles.css
-./indexeddb.shim.min.js
-./promise.js
-./application.js
-
-NETWORK:
-*
