@@ -62,5 +62,9 @@ export class AppComponent {
   incrementZoom(amount: number) {
     this.zoom += amount;
   }
+
+  /*
+    converts PDF to a Base64 string that can be stored in IndexedDB across browsers
+  */
 }
  
