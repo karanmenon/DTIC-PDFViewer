@@ -28,6 +28,15 @@
     title="Zoom Out"
   ></span>
 
+  <!-- Toggle all pages-->
+  <span
+    class="my-icon"
+    [ngClass]="{ active: showAll }"
+    [inlineSVG]="'/assets/icon/baseline-multi-pages-24px.svg'"
+    (click)="showAll = !showAll"
+    title="Toggle Show All"
+  ></span>
+
   <!-- Share Button -->
   <button (click)= shareBox()> 
     Share
@@ -41,6 +50,7 @@
   [render-text]="true"
   [rotation]="rotation"
   [zoom] = "zoom"
+  [show-all] = "showAll"
   style="display: block;">
   </pdf-viewer>
 </div>
