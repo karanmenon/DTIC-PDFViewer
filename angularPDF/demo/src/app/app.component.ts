@@ -1,26 +1,22 @@
 import { Component, HostListener } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'; // used for pdf viewing
 
-
-declare var jQuery: any; // not really sure what this does
+declare var jQuery: any; 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  //title of the app, don't know where this is used
+export class AppComponent { //App Component is the PDF Viewer Component including the viewer's toolbar
   title = 'viewer2Angular';
   
-  //probably constructs the http client request
+  // constructs the http client request
   constructor(private http:HttpClient){}
-  //url of the pdf
-  pdfSrc='https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'
-  
-  //Add more variable here (for the buttons)
-  rotation = 0;
-  zoom = 1.0;
+
+  pdfSrc='https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'   //url of the pdf
+  rotation = 0; // the angle of rotation, init position is 0
+  zoom = 1.0; // the degree of zoom, default degree is 0
   name = 'ngx-sharebuttons';
 
   /** 
@@ -51,6 +47,7 @@ export class AppComponent {
 
   /**
    * Rotate the pdf
+   * @param angle the degree of rotation, insert negative number for left rotation
    */
   rotate(angle: number) {
     this.rotation += angle;
