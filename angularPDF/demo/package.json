@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-brands-svg-icons": "^5.13.1",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@pdftron/webviewer": "^6.3.4",
     "ng-inline-svg": "^10.1.0",
     "ng2-pdf-viewer": "^6.3.2",
     "ngx-sharebuttons": "^8.0.0",

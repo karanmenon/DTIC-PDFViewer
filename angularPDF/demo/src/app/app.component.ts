@@ -106,5 +106,9 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   incrementPage(number) {
     this.page += number;
   }
+
+  
+
+  
 }
  
