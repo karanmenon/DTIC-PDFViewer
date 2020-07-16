@@ -26,6 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "ng-inline-svg": "^10.1.0",
     "ng2-pdf-viewer": "^6.3.2",
+    "ngx-indexed-db": "^5.0.5",
     "ngx-sharebuttons": "^8.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

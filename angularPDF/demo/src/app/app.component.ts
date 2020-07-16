@@ -2,11 +2,13 @@ import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // used for pdf viewing
 
 declare var jQuery: any; 
+declare var b64:string;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+   
 })
 export class AppComponent { //App Component is the PDF Viewer Component including the viewer's toolbar
   title = 'viewer2Angular';
@@ -19,6 +21,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   zoom = 1.0; // the degree of zoom, default degree is 0
   name = 'ngx-sharebuttons';
   showAll= true;
+  page = 1;
 
   /** 
    * Function that allows the user to view a local file using the viewer
@@ -101,5 +104,36 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   onRightClick(event) {
     event.preventDefault();
   }
+
+  incrementPage(number) {
+    this.page += number;
+  }
+/*
+ this button converts the PDF file to Base 64 encoding
+
+*/
+fileToBase64 = (filename, filepath) => {
+  return new Promise(resolve => {
+    var file = new File([filename], filepath);
+    var reader = new FileReader();
+    // Read file content on file loaded event
+    reader.onload = function(event) {
+      resolve(event.target.result);
+    };
+    
+    // Convert data to base64 
+    reader.readAsDataURL(file);
+  });
+}
+
+//this button sends a PDF to Offline Storage
+
+onOfflineClick(){
+  this.fileToBase64("compressed.tracemonkey-pldi-09.pdf", "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf").then(result => {
+  console.log(result);
+  b64=String(result);
+});
+}
+
 }
  
