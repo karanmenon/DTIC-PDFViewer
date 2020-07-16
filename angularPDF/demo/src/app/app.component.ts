@@ -108,6 +108,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   incrementPage(number) {
     this.page += number;
   }
+<<<<<<< HEAD
 /*
  this button converts the PDF file to Base 64 encoding
 
@@ -135,5 +136,11 @@ onOfflineClick(){
 });
 }
 
+=======
+
+  
+
+  
+>>>>>>> 408a00b1810104ee77d0204e75361bc5e1df299f
 }
  
