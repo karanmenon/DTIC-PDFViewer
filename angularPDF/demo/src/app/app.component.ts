@@ -109,6 +109,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     this.page += number;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
  this button converts the PDF file to Base 64 encoding
 
@@ -142,5 +143,7 @@ onOfflineClick(){
 
   
 >>>>>>> 408a00b1810104ee77d0204e75361bc5e1df299f
+=======
+>>>>>>> parent of 408a00b1... webviewer integration
 }
  
