@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     WebViewer({
       path: '../lib',
-      initialDoc: '../files/webviewer-demo-annotated.pdf'
+      initialDoc: '../files/webviewer-demo-annotated.pdf' // the doc we are reading
     }, this.viewer.nativeElement).then(instance => {
       this.wvInstance = instance;
 
