@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // used for pdf viewing
+import { EventManager } from '@angular/platform-browser';
 
 declare var jQuery: any; 
 declare var b64:string;
@@ -22,6 +23,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   name = 'ngx-sharebuttons';
   showAll= true;
   page = 1;
+  keystroke = ["1", "2"];
 
   /** 
    * Function that allows the user to view a local file using the viewer
@@ -92,9 +94,17 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
    */
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-  console.log(event);
-   event.returnValue = false;
-   event.preventDefault();
+    console.log(event);
+    this.keystroke[0] = this.keystroke[1];
+    this.keystroke[1] = event.key;
+    if (this.keystroke[0] == "Control" && this.keystroke[1] == "p"){
+      event.preventDefault();
+      console.log("hello!");
+    }
+    if (this.keystroke[0] == "Control" && this.keystroke[1] == "c"){
+      event.preventDefault();
+      console.log("hello!");
+    }
   }
 
   /**
