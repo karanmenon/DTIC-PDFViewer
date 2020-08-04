@@ -78,6 +78,12 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     cLink.value = nLink;
   }
 
+  shareOutlook(){
+    var link = window.location.href;
+    let url = 'https://outlook.office.com/?path=/mail/action/compose&to=to_address&subject=subject&body=' + link;
+    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
+  }
+
   /**
    * Allows the user to send gmail emails from the pdf viewer through their personal email.
    * By editing the url variable you can change the subject and the body message.
@@ -87,6 +93,12 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   shareGmail(){
     var link = window.location.href;
     let url = 'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Your+Subject+here&body='+"Check out this PDF: " + link +'&ui=2&tf=1&pli=1';
+    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
+  }
+
+  shareYahoo(){
+    var link = window.location.href;
+    let url = 'https://compose.mail.yahoo.com/?to=to_address&subject=subject&body=' + link;
     window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
   }
 

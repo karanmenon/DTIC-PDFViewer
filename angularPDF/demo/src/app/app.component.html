@@ -86,7 +86,9 @@
   <share-button [theme]="'material-dark'" [button]="'copy'"></share-button>
   <div>
     <share-button button="email"></share-button>
+    <button (click)= shareOutlook()> Outlook </button>
     <button (click)= shareGmail()>Gmail</button>
+    <button (click)= shareYahoo()>Yahoo</button>
   </div>
   <p>Disclaimer: PDF only visable by those with access to distribution statement _ because ...</p>
 </div>
