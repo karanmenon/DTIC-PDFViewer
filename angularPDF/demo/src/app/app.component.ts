@@ -68,7 +68,11 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   }
 
   /**
-   * opens the share box when share button is clicked in the tool bar
+   * opens the share box when share button is clicked in the tool bar; resets the share link to the current link
+   * at the top of the document
+   * @var box the share element
+   * @var nlink the link at the top of the window
+   * @var cLink the link that is currently visable in the share box
    */
   shareBox(){
     var box = document.getElementById("share");
@@ -78,6 +82,11 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     cLink.value = nLink;
   }
 
+  /**
+   * @description Allows the user to send Outlook emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
+   * @var link is the url at the top of the page
+   * @var url is the link that is opened when the Outlook button is clicked, leads to the user's composition box
+   */
   shareOutlook(){
     var link = window.location.href;
     let url = 'https://outlook.office.com/?path=/mail/action/compose&to=to_address&subject=subject&body=' + link;
@@ -85,8 +94,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   }
 
   /**
-   * Allows the user to send gmail emails from the pdf viewer through their personal email.
-   * By editing the url variable you can change the subject and the body message.
+   * @description Allows the user to send gmail emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
    * @var link is the url at the top of the page
    * @var url is the link that is opened when the gmail button is clicked, leads to the user's composition box
    */
@@ -96,6 +104,11 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
   }
 
+  /**
+   * @description Allows the user to send tahoo emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
+   * @var link is the url at the top of the page
+   * @var url is the link that is opened when the yahoo button is clicked, leads to the user's composition box
+   */
   shareYahoo(){
     var link = window.location.href;
     let url = 'https://compose.mail.yahoo.com/?to=to_address&subject=subject&body=' + link;
@@ -104,6 +117,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
 
   /**
    * Closes the share box when x button is clicked
+   * @var box the share box itself
    */
   closeShare(){
     var box = document.getElementById("share");
@@ -142,9 +156,10 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   incrementPage(number) {
     this.page += number;
   }
+
+
 /*
  this button converts the PDF file to Base 64 encoding
-
 */
 fileToBase64 = (filename, filepath) => {
   return new Promise(resolve => {
