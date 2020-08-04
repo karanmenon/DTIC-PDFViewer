@@ -68,7 +68,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   }
 
   /**
-   * openst he share box when share button is clicked in the tool bar
+   * opens the share box when share button is clicked in the tool bar
    */
   shareBox(){
     var box = document.getElementById("share");
@@ -76,6 +76,18 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     var nLink= window.location.href;
     var cLink = document.getElementById("sharelink") as HTMLInputElement;
     cLink.value = nLink;
+  }
+
+  /**
+   * Allows the user to send gmail emails from the pdf viewer through their personal email.
+   * By editing the url variable you can change the subject and the body message.
+   * @var link is the url at the top of the page
+   * @var url is the link that is opened when the gmail button is clicked, leads to the user's composition box
+   */
+  shareGmail(){
+    var link = window.location.href;
+    let url = 'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Your+Subject+here&body='+"Check out this PDF: " + link +'&ui=2&tf=1&pli=1';
+    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
   }
 
   /**
