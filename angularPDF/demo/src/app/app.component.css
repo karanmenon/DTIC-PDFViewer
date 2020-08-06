@@ -38,15 +38,14 @@
   }
 
   .toolbar {
-    position: fixed;
-    z-index: 5;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1C2A43;
+    background-color: #1976d2;
     color: white; 
     font-weight: 600;
   }
@@ -86,4 +85,3 @@
   a:hover {
     color: #125699;
   }
-
