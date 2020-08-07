@@ -38,14 +38,15 @@
   }
 
   .toolbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 5;
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
+    background-color: #1C2A43;
     color: white; 
     font-weight: 600;
   }
