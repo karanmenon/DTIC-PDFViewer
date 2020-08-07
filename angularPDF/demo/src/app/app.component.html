@@ -4,28 +4,38 @@
 
   <!-- Rotate Left -->
   <span
-  [inlineSVG]="'/assets/icon/baseline-rotate_left-24px.svg'"
+  class="fa fa-undo" 
+  aria-hidden="true"
   (click)="rotate(-90)"
   title="Rotate Left"
+  style="margin-left: 5px;"
   ></span>
+
+  <br>
   <!-- Rotate Right-->
   <span
-    [inlineSVG]="'/assets/icon/baseline-rotate_right-24px.svg'"
+    class="fa fa-undo fa-flip-horizontal"
     (click)="rotate(90)"
     title="Rotate Right"
+    style="margin-left: 5px;"
   ></span>
 
   <!-- Zoom in -->
-  <span
-    [inlineSVG]="'/assets/icon/baseline-zoom_in-24px.svg'"
+  <span 
+    class="fa fa-search-plus"
+    aria-hidden="true"
     (click)="incrementZoom(0.1)"
     title="Zoom In"
+    style="margin-left: 5px;"
   ></span>
+
   <!-- Zoom Out -->
   <span
-    [inlineSVG]="'/assets/icon/baseline-zoom_out-24px.svg'"
+    class="fa fa-search-minus"
+    aria-hidden="true"
     (click)="incrementZoom(-0.1)"
     title="Zoom Out"
+    style="margin-left: 5px;"
   ></span>
 
   <!-- Toggle all pages-->
@@ -35,6 +45,7 @@
     [inlineSVG]="'/assets/icon/baseline-multi-pages-24px.svg'"
     (click)="showAll = !showAll"
     title="Toggle Show All"
+    style="margin-left: 5px;"
   ></span>
 
   <ng-container *ngIf="!showAll">
@@ -44,16 +55,6 @@
       (click)="incrementPage(-1)"
       title="Previous Page"
     ></span>
-    <div>
-      <input
-        type="number"
-        class="page-num"
-        placeholder="Page"
-        [(ngModel)]="page"
-        pattern="-?[0-9]*(\.[0-9]+)?"
-      />
-      <span *ngIf="pdf">of {{ pdf.numPages }}</span>
-    </div>
     <span
       class="my-icon"
       [inlineSVG]="'/assets/icon/baseline-navigate_next-24px.svg'"
@@ -63,7 +64,7 @@
   </ng-container>
 
   <!-- Share Button -->
-  <button (click)= openModal() >Share</button>
+  <span (click)= openModal() class="fas fa-share-alt fa-inverse"></span>
   <button (click)= onOfflineClick()>Store Offline</button>
 </div>
 
