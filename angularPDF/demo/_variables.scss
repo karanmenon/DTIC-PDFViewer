@@ -1,0 +1,43 @@
+/*  DTIC Colors  */
+$dtic-primary-blue: #205493;  
+$dtic-secondary-blue: #4773AA;
+$dtic-primary-yellow: #F9C642;  /* needs to be on a dark background to pass 508 */
+$dtic-secondary-yellow: #FAD980;  /* needs to be on a dark background to pass 508 */
+$dtic-primary-gray: #D6D7D9;  /* needs to be on a dark background to pass 508 */
+$dtic-secondary-gray: #F1F1F1;  /* needs to be on a dark background to pass 508 */
+
+/* Other Colors to Support UI  */
+/* Unless otherwise specified, all colors meet 508 contrast ratios when placed
+on a white background or when using as a background color to white text */
+$dtic-dark-gray: #555555;
+$dtic-inactive-gray: #949494;  /* icons or large text only - does not pass 508 when used with regular text */
+$dtic-dark-blue: #1C2A43;
+$dtic-light-blue: #C6D7E7;  /* needs to be on a dark background to pass 508 */
+$dtic-green: #3C7836;
+$dtic-red: #DA1010;
+$dtic-orange: #FF571A; /* icons or large text only - does not pass 508 when used with regular text */
+$dtic-dark-orange: #D63900;  /* darker orange for text */
+$dtic-pink: #CC1D62;
+$dtic-purple:  #6C3791;
+$dtic-teal: #008674;
+
+/* Background Colors Used To Highlight with 30% Opacity */
+$dtic-highlight-yellow: rgba(255, 255, 0, 0.3);
+$dtic-highlight-gray: rgba(204, 204, 204, 0.3);
+
+
+/* Global Variables  */
+$dtic-link-color: $dtic-primary-blue;
+$dtic-link-color-hover: $dtic-dark-blue;
+
+/* Device Breakpoints  */
+/* Corresponds with US Web Design Standards Breakpoints */
+$mobile: 479px;  /* <= 479px */
+$mobile-lg: 639px;  /* 639px-480px */
+$tablet: 1023px;  /* 1023px-640px */
+$desktop: 1024px;  /* >1024px */
+
+/* Target IE Only in Media Query */
+$ie-only: "screen and (-ms-high-contrast: active), (-ms-high-contrast: none)";
+
+/* Application Variables  */
