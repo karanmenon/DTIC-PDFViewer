@@ -1,14 +1,4 @@
-#share{
-    background-color:yellow;
-    position: fixed;
-    width: 50%;
-    height: 50%;
-    z-index: 5;
-    overflow: auto;
-    top: 25%;
-    left: 25%;
-    visibility: hidden;
-}
+
 
 /* Everything written after this point is part of the angular new app code, it was not written by me */
 :host {
@@ -38,16 +28,17 @@
   }
 
   .toolbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
+    background-color: #1C2A43;
     color: white; 
     font-weight: 600;
+    z-index: 5;
   }
 
   .toolbar img {

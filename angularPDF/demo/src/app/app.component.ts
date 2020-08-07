@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // used for pdf viewing
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { EventManager } from '@angular/platform-browser';
 
 declare var jQuery: any; 
@@ -15,7 +17,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   title = 'viewer2Angular';
   
   // constructs the http client request
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient, public dialog: MatDialog ){}
 
   pdfSrc='https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'   //url of the pdf
   rotation = 0; // the angle of rotation, init position is 0
@@ -24,6 +26,18 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   showAll= true;
   page = 1;
   keystroke = ["1", "2"];
+
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+    id: 1,
+    title: 'Share'
+    };
+    const dialogRef = this.dialog.open(MyDialogComponent, dialogConfig);
+    dialogRef.disableClose = false;
+  }
 
   /** 
    * Function that allows the user to view a local file using the viewer
@@ -67,63 +81,6 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     this.zoom += amount;
   }
 
-  /**
-   * opens the share box when share button is clicked in the tool bar; resets the share link to the current link
-   * at the top of the document
-   * @var box the share element
-   * @var nlink the link at the top of the window
-   * @var cLink the link that is currently visable in the share box
-   */
-  shareBox(){
-    var box = document.getElementById("share");
-    box.style.visibility = "visible";
-    var nLink= window.location.href;
-    var cLink = document.getElementById("sharelink") as HTMLInputElement;
-    cLink.value = nLink;
-  }
-
-  /**
-   * @description Allows the user to send Outlook emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
-   * @var link is the url at the top of the page
-   * @var url is the link that is opened when the Outlook button is clicked, leads to the user's composition box
-   */
-  shareOutlook(){
-    var link = window.location.href;
-    let url = 'https://outlook.office.com/?path=/mail/action/compose&to=to_address&subject=subject&body=' + link;
-    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
-  }
-
-  /**
-   * @description Allows the user to send gmail emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
-   * @var link is the url at the top of the page
-   * @var url is the link that is opened when the gmail button is clicked, leads to the user's composition box
-   */
-  shareGmail(){
-    var link = window.location.href;
-    let url = 'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Your+Subject+here&body='+"Check out this PDF: " + link +'&ui=2&tf=1&pli=1';
-    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
-  }
-
-  /**
-   * @description Allows the user to send tahoo emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
-   * @var link is the url at the top of the page
-   * @var url is the link that is opened when the yahoo button is clicked, leads to the user's composition box
-   */
-  shareYahoo(){
-    var link = window.location.href;
-    let url = 'https://compose.mail.yahoo.com/?to=to_address&subject=subject&body=' + link;
-    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
-  }
-
-  /**
-   * Closes the share box when x button is clicked
-   * @var box the share box itself
-   */
-  closeShare(){
-    var box = document.getElementById("share");
-    box.style.visibility = "hidden";
-  }
-
 
   /**
    * This is the funtion the turns off keystrokes
@@ -157,7 +114,9 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     this.page += number;
   }
 
+  
 
+  
 /*
  this button converts the PDF file to Base 64 encoding
 */
@@ -184,4 +143,8 @@ onOfflineClick(){
 });
 }
 }
+
+
+
+
  
