@@ -48,6 +48,12 @@ export class MyDialogComponent {
     window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
   }
 
+  shareEmail(){
+    var link = window.location.href;
+    let url = "mailto:?Subject=SubjectHere&body=" + link;
+    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
+  }
+
   copyLink(){
     /* Get the text field */
     var copyText = document.getElementById("sharelink") as HTMLInputElement;
