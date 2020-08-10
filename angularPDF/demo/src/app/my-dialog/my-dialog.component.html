@@ -1,14 +1,14 @@
 <h2 mat-dialog-title>{{modalTitle}}</h2>
 <div> 
     <input type= "text" value= {{url}} id="sharelink"> 
-    <button mat-button (click)= copyLink()>Copy Link</button>
+    <span class="fas fa-link" (click)= copyLink()></span>
 </div>
 <mat-dialog-actions>
 <div>
-    <button mat-button (click)= shareGmail()>Google</button>
-    <button mat-button (click)= shareYahoo()>Ymail</button>
-    <button mat-button (click)= shareOutlook()>Outlook</button>
-    <button mat-button>Other</button>
+    <span (click)= shareGmail() class="fab fa-google fa-lg">oogle</span> &nbsp;
+    <span class="fab fa-yahoo fa-lg" (click)= shareYahoo()></span>&nbsp;
+    <button mat-button class = "fab fa-outlook" (click)= shareOutlook()>Outlook</button>&nbsp;
+    <button mat-button>Other</button>&nbsp;
 </div>
 </mat-dialog-actions>
 <!-- Mat-dialog-close -->

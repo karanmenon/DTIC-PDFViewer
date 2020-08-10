@@ -4,7 +4,7 @@
 
   <!-- Rotate Left -->
   <span
-  class="fa fa-undo" 
+  class="fa fa-undo fa-lg" 
   aria-hidden="true"
   (click)="rotate(-90)"
   title="Rotate Left"
@@ -14,7 +14,7 @@
   <br>
   <!-- Rotate Right-->
   <span
-    class="fa fa-undo fa-flip-horizontal"
+    class="fa fa-undo fa-flip-horizontal fa-lg"
     (click)="rotate(90)"
     title="Rotate Right"
     style="margin-left: 5px;"
@@ -22,7 +22,7 @@
 
   <!-- Zoom in -->
   <span 
-    class="fa fa-search-plus"
+    class="fa fa-search-plus fa-lg"
     aria-hidden="true"
     (click)="incrementZoom(0.1)"
     title="Zoom In"
@@ -31,7 +31,7 @@
 
   <!-- Zoom Out -->
   <span
-    class="fa fa-search-minus"
+    class="fa fa-search-minus fa-lg"
     aria-hidden="true"
     (click)="incrementZoom(-0.1)"
     title="Zoom Out"
@@ -47,25 +47,38 @@
     title="Toggle Show All"
     style="margin-left: 5px;"
   ></span>
-
   <ng-container *ngIf="!showAll">
     <span
-      class="my-icon ml-auto"
-      [inlineSVG]="'/assets/icon/baseline-navigate_before-24px.svg'"
+      class="fas fa-chevron-left fa-lg"
       (click)="incrementPage(-1)"
+      style="margin-left: 5px;"
       title="Previous Page"
     ></span>
+    <input type= "text" value= {{page}} style = "width: 25px;">out of {{totalPages}}
     <span
-      class="my-icon"
-      [inlineSVG]="'/assets/icon/baseline-navigate_next-24px.svg'"
+      class="fas fa-chevron-right fa-lg"
       (click)="incrementPage(1)"
+      style="margin-left: 5px;"
       title="Next Page"
     ></span>
   </ng-container>
 
   <!-- Share Button -->
-  <span (click)= openModal() class="fas fa-share-alt fa-inverse"></span>
-  <button (click)= onOfflineClick()>Store Offline</button>
+  <span
+  (click)= openModal() 
+  class="fas fa-share-alt fa-inverse fa-lg"
+  style="margin-left: 5px;"
+  title="Share"
+  ></span>
+
+  <!-- Offline Database -->
+  <span  
+  (click)= onOfflineClick() 
+  class="fas fa-wifi fa-lg" 
+  style="margin-left: 5px;"
+  title= "Add to Offline Database"
+  ></span>
+
 </div>
 
 <div class="content" role="main" style="z-index: 0;" (contextmenu)="onRightClick($event)">
@@ -76,7 +89,8 @@
   [zoom] = "zoom"
   [show-all] = "showAll"
   [(page)]="page"
-  style="display: block;">
+  style="display: block;"
+  (after-load-complete)="afterLoadComplete($event)">
   </pdf-viewer>
 </div>
 

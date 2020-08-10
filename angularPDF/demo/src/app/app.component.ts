@@ -26,6 +26,11 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   showAll= true;
   page = 1;
   keystroke = ["1", "2"];
+  totalPages = 0;
+
+  afterLoadComplete(pdf): void {
+    this.totalPages = pdf.numPages;
+  }
 
   openModal() {
     const dialogConfig = new MatDialogConfig();
