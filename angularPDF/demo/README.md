@@ -1,3 +1,18 @@
+# PDF Viewer and Offline Database
+This project was created by Danielle Zevitz and Karan Menon for DTIC during the Summer 2020 X-force fellowship program. It was made to help promote safe document sharing by storing the documents in the user's browser. 
+
+## Requirements
+
+## Installation
+This project comes with 3 Angular components: app.component(pdf viewer), my-dialog component(share box), and indexeddb (Offline Database). The components can easily be transfered into a website using the Angular framework by ... 
+
+## Usage
+
+
+
+
+
+Everthing after this line came with the Angular init
 # Demo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
