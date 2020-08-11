@@ -1,15 +1,35 @@
 <h2 mat-dialog-title>{{modalTitle}}</h2>
 <div> 
     <input type= "text" value= {{url}} id="sharelink"> 
-    <span class="fas fa-link" (click)= copyLink()></span>
+    <span 
+        class="fas fa-link" 
+        (click)= copyLink()
+        title = "Copy Link"
+    ></span>
 </div>
 <mat-dialog-actions>
 <div>
-    <span (click)= shareGmail() class="fab fa-google fa-lg">oogle</span> &nbsp;
-    <span class="fab fa-yahoo fa-lg" (click)= shareYahoo()></span>&nbsp;
-    <button mat-button class = "fab fa-outlook" (click)= shareOutlook()>Outlook</button>&nbsp;
-    <span (click)= shareEmail() class = "far fa-envelope"></span>&nbsp;
+    <span 
+        (click)= shareGmail() 
+        class="fab fa-google "
+        title = Gmail
+    ></span> &nbsp;
+    <span 
+        class="fab fa-yahoo fa-lg" 
+        (click)= shareYahoo()
+        title = Ymail
+    ></span>&nbsp;
+    <button 
+        mat-button 
+        class = "fab fa-outlook" 
+        (click)= shareOutlook()
+        title= Outlook
+    >Outlook</button>&nbsp;
+    <span 
+        (click)= shareEmail() 
+        class = "far fa-envelope"
+        title = Mail
+    ></span>&nbsp;
     
 </div>
 </mat-dialog-actions>
-<!-- Mat-dialog-close -->
