@@ -72,12 +72,20 @@
   ></span>
 
   <!-- Offline Database -->
-  <span  
-  (click)= onOfflineClick() 
-  class="fas fa-wifi fa-lg" 
-  style="margin-left: 5px;"
-  title= "Add to Offline Database"
-  ></span>
+  <div>
+    <i (click)= onOfflineClick() 
+      title= "Add to Offline Database" 
+      style="margin-left: 5px;" 
+      class="fas fa-wifi fa-lg" 
+      aria-hidden="true">
+    </i>
+    <i title= "Add to Offline Database" 
+      (click)= onOfflineClick()  
+      style="margin-left: 5px;" 
+      class="fas fa-slash fa-lg" 
+      aria-label="View offline">
+    </i>
+  </div>
 
 </div>
 

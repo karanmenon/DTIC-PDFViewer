@@ -1,3 +1,17 @@
 #sharelink{
     width: 70%;
 }
+.share-btns {
+    display: inline-block;
+    background-color: #EAEAEA;
+    text-align: center;
+    margin: 0 3px;
+    font-size: 0.8rem;
+    padding: 8px 10px;
+}
+
+#shareIcon{
+    display: block;
+    margin-bottom: 2px;
+    font-size: 1.8rem;
+}

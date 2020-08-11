@@ -9,27 +9,22 @@
 </div>
 <mat-dialog-actions>
 <div>
-    <span 
-        (click)= shareGmail() 
-        class="fab fa-google "
-        title = Gmail
-    ></span> &nbsp;
-    <span 
-        class="fab fa-yahoo fa-lg" 
-        (click)= shareYahoo()
-        title = Ymail
-    ></span>&nbsp;
-    <button 
-        mat-button 
-        class = "fab fa-outlook" 
-        (click)= shareOutlook()
-        title= Outlook
-    >Outlook</button>&nbsp;
-    <span 
-        (click)= shareEmail() 
-        class = "far fa-envelope"
-        title = Mail
-    ></span>&nbsp;
+    <div class="share-btns" (click)= shareGmail() title = Gmail>
+        <i class="fab fa-google" id="shareIcon"></i>
+        Google
+    </div>
+    <div class="share-btns" (click)= shareYahoo() title = Ymail>
+        <i class="fab fa-yahoo" id="shareIcon"></i>
+        Yahoo
+    </div>
+    <div class="share-btns" (click)= shareOutlook() title = Outlook>
+        <i class="fab fa-windows" id="shareIcon"></i>
+        Outlook
+    </div>
+    <div class="share-btns" (click)= shareEmail() title = Other>
+        <i class="fa fa-envelope" id="shareIcon"></i>
+        Other
+    </div>
     
 </div>
 </mat-dialog-actions>
