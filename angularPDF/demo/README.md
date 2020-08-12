@@ -58,7 +58,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 Feel free to contact Danielle Zevitz (dez8dc@virginia.edu) or Karan Menon (krmenon@usc.edu) with any questions on the documentation or project.
 
 
-## Roadmap
+## Future Development Plans
+### Pdf Viewer
+* Annotation Features - We will potentially a PDF viewer's SDK, see market research document for information about the different PDF viewer companies
+    * Right click to open annotation feature
+    * Draw tool
+    * Comment box
+* Organization of toolbar to utilize the header space or transition to a vertical toolbar
+* Allow user to input page number in single page mode
+* First and Last page button
+* A Search bar for certain words in the pdf
+
 
 ## Authors and acknowledgments
 This project was created by Danielle Zevitz and Karan Menon for DTIC during the Summer 2020 X-force fellowship program.
