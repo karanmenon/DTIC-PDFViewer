@@ -4,9 +4,68 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Requirements
 * Angular 10+
+* Node: 12.18.0
+
+### Required Dependencies
+* @angular/cdk                      10.1.2
+* @angular/cli                      10.0.1
+* @angular/material                 10.1.2
+* @ngtools/webpack                  10.0.1
+* @schematics/angular               10.0.1
+* @schematics/update                0.1000.1
+* rxjs                              6.5.5
+* typescript                        3.9.6
+* webpack                           4.43.0
+* @angular/animations               10.0.2
+* @angular/common                   10.0.2
+* @angular/compiler                 10.0.2
+* @angular/compiler-cli             10.0.2
+* @angular/core                     10.0.2
+* @angular/forms 10.0.2
+* @angular/material 10.1.2
+* @angular/platform-browser 10.0.2
+* @angular/platform-browser-dynamic 10.0.2
+* @angular/router 10.0.2
+* @types/jasmine 3.5.11
+* @types/jasminewd2 2.0.8
+* @types/node 12.12.47
+* angular 1.8.0
+* codelyzer 6.0.0
+* jasmine-core 3.5.0
+* jasmine-spec-reporter 5.0.2
+* karma 5.0.9
+* karma-chrome-launcher 3.1.0
+* karma-coverage-istanbul-reporter 3.0.3
+* karma-jasmine 3.3.1
+* karma-jasmine-html-reporter 1.5.4
+* ng-inline-svg 10.1.0
+* ng2-pdf-viewer 6.3.2
+* ngx-indexed-db 5.0.5
+* protractor 7.0.0
+* rxjs 6.5.5
+* save 2.4.0
+* ts-node 8.3.0
+* tslib 2.0.0
+* tslint 6.1.2
+* typescript 3.9.6
+* zone.js 0.10.3
+
+
+### Testing Dependencies
+* @angular-devkit/architect         0.1000.1
+* @angular-devkit/build-angular     0.1000.1
+* @angular-devkit/build-optimizer   0.1000.1
+* @angular-devkit/build-webpack     0.1000.1
+* @angular-devkit/core              10.0.1
+* @angular-devkit/schematics        10.0.1
+
+
 
 ## Features
-### Pdf viewer
+* Icons taken from FontAwesome
+
+### Pdf viewer Features
+* Developed using ng2-pdf-viewer
 * Toolbar
     * Rotate Feature Counter Clockwise and Clockwise 90 degrees
     * Zoom In and Out 
@@ -25,10 +84,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
         * Ctrl + P = Print on Windows
     * To disable new keystroke, copy code for other keystroke disabler and replace with new key's code
 
-### Share box
+### Share Box Features
+* Created using a MatDialog Component
 * Quick Copy button
 * Click outside the box to close it
-### Offline Database
+
+### Offline Database Features
+* ngx-indexed-db library to use indexed-db with Angular
+* Base-64 encoding to store the PDF
+* Accessible by Offline Mode button in PDF Viewer
+* Stores PDFs within the browser using IndexedDB, relies on concept of Object Storage
+* Can be accessed offline
+* PDFs converted to Base64 format for better storage
+* Can see all the files that have been added, with an option to open or delete
+
 
 
 ## Usage
@@ -68,7 +137,10 @@ Feel free to contact Danielle Zevitz (dez8dc@virginia.edu) or Karan Menon (krmen
 * Allow user to input page number in single page mode
 * First and Last page button
 * A Search bar for certain words in the pdf
+### Offline Database
+* Add folder feature to reorganize files
 
+## License
 
 ## Authors and acknowledgments
 This project was created by Danielle Zevitz and Karan Menon for DTIC during the Summer 2020 X-force fellowship program.
