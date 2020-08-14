@@ -1,6 +1,9 @@
+/* Input box with link in it */
 #sharelink{
     width: 85%;
 }
+
+/* All the share buttons at the bottom of the dialog box*/
 .share-btns {
     display: inline-block;
     background-color: #EAEAEA;
@@ -10,6 +13,7 @@
     padding: 8px 10px;
 }
 
+/* makes the share buttons line up with their names vertically */
 #shareIcon{
     display: block;
     margin-bottom: 2px;

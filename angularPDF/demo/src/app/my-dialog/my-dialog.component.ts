@@ -38,7 +38,7 @@ export class MyDialogComponent {
   }
 
   /**
-   * @description Allows the user to send tahoo emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
+   * @description Allows the user to send yahoo emails from the pdf viewer through their personal email. By editing the url variable you can change the subject and the body message.
    * @var link is the url at the top of the page
    * @var url is the link that is opened when the yahoo button is clicked, leads to the user's composition box
    */
@@ -48,12 +48,21 @@ export class MyDialogComponent {
     window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
   }
 
+  /**
+   * @description allows user to share the link to the pdf through their computer's built in mail app
+   * @var the href located at the top of the browser
+   * @url the url that opens the user chosen mail app
+   */
   shareEmail(){
     var link = window.location.href;
     let url = "mailto:?Subject=SubjectHere&body=" + link;
     window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
   }
 
+  /**
+   * @description Allows the user to copy the pdf's link and highlights the link as well. 
+   * @var copyText gets the text that is in the input box with the ID "sharelink". Need to be a HTMLInputElement so we can use the select function on it.
+   */
   copyLink(){
     /* Get the text field */
     var copyText = document.getElementById("sharelink") as HTMLInputElement;

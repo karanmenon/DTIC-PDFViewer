@@ -22,7 +22,6 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
   pdfSrc='https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf'   //url of the pdf
   rotation = 0; // the angle of rotation, init position is 0
   zoom = 1.0; // the degree of zoom, default degree is 0
-  name = 'ngx-sharebuttons';
   showAll= true;
   page = 1;
   keystroke = ["1", "2"];
@@ -32,7 +31,9 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     this.totalPages = pdf.numPages;
   }
 
-
+  /**
+   * @description Opens the share box (used when share button is clicked)
+   */
   openModal() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -43,32 +44,6 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     };
     const dialogRef = this.dialog.open(MyDialogComponent, dialogConfig);
     dialogRef.disableClose = false;
-  }
-
-  /** 
-   * Function that allows the user to view a local file using the viewer
-   * Will not be here in the final version
-  */
-  openLocalFile() {
-    jQuery('#file').trigger('click');
-  }
-
-  /**
-   * Render PDF preview on selecting file
-   * Tied with openLocalFile, will not be in final version
-   */
-  onFileSelected() {
-    const $pdf: any = document.querySelector('#file');
-
-    if (typeof FileReader !== 'undefined') {
-      const reader = new FileReader();
-
-      reader.onload = (e: any) => {
-        this.pdfSrc = e.target.result;
-      };
-
-      reader.readAsArrayBuffer($pdf.files[0]);
-    }
   }
 
   /**
@@ -90,7 +65,7 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
 
   /**
    * This is the funtion the turns off keystrokes
-   * - Currently turns off the whole keyboard, but I think I can simlipfy to certain keystrokes if needed.
+   * Currently only turns off Ctrl + p, Ctrl + C, and Ctrl + S
    * @param event This key that is input by the keyboard registers as a keyboard event
    */
   @HostListener('document:keydown', ['$event'])
@@ -100,11 +75,12 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     this.keystroke[1] = event.key;
     if (this.keystroke[0] == "Control" && this.keystroke[1] == "p"){
       event.preventDefault();
-      console.log("hello!");
     }
     if (this.keystroke[0] == "Control" && this.keystroke[1] == "c"){
       event.preventDefault();
-      console.log("hello!");
+    }
+    if (this.keystroke[0] == "Control" && this.keystroke[1] == "s"){
+      event.preventDefault();
     }
   }
 
@@ -116,13 +92,15 @@ export class AppComponent { //App Component is the PDF Viewer Component includin
     event.preventDefault();
   }
 
+  /**
+   * In single page view, this changes the pages, inputing a negative
+   * number will decrement the page
+   * @param number this is how many pages you would like to increase the current page count by
+   */
   incrementPage(number) {
     this.page += number;
   }
 
-  
-
-  
 /*
  this button converts the PDF file to Base 64 encoding
 */
@@ -141,7 +119,6 @@ fileToBase64 = (filename, filepath) => {
 }
 
 //this button sends a PDF to Offline Storage
-
 onOfflineClick(){
   this.fileToBase64("compressed.tracemonkey-pldi-09.pdf", "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf").then(result => {
   console.log(result);
