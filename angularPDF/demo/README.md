@@ -31,17 +31,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * @types/node 12.12.47
 * angular 1.8.0
 * codelyzer 6.0.0
-* jasmine-core 3.5.0
-* jasmine-spec-reporter 5.0.2
-* karma 5.0.9
-* karma-chrome-launcher 3.1.0
-* karma-coverage-istanbul-reporter 3.0.3
-* karma-jasmine 3.3.1
-* karma-jasmine-html-reporter 1.5.4
 * ng-inline-svg 10.1.0
 * ng2-pdf-viewer 6.3.2
 * ngx-indexed-db 5.0.5
-* protractor 7.0.0
 * rxjs 6.5.5
 * save 2.4.0
 * ts-node 8.3.0
@@ -58,7 +50,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * @angular-devkit/build-webpack     0.1000.1
 * @angular-devkit/core              10.0.1
 * @angular-devkit/schematics        10.0.1
-
+* karma 5.0.9
+* karma-chrome-launcher 3.1.0
+* karma-coverage-istanbul-reporter 3.0.3
+* karma-jasmine 3.3.1
+* karma-jasmine-html-reporter 1.5.4
+* jasmine-core 3.5.0
+* jasmine-spec-reporter 5.0.2
+* protractor 7.0.0
 
 
 ## Features
@@ -72,7 +71,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     * Toggle Pages - User can choose between viewing one page or viewing the whole pdf
     * Previous Page - Only visible when in single page view
     * Page number -  Only visible in single page view, shows the user that they are on _ out of _ pages
-    * Next Page - Only visble in single page view
+    * Next Page - Only visible in single page view
     * Share - Opens up matdialog box with share options
     * Save to Offline Mode - converts text to Base-64 and saves it to the indexedDB database
 * Right click disabled
@@ -141,6 +140,7 @@ Feel free to contact Danielle Zevitz (dez8dc@virginia.edu) or Karan Menon (krmen
 * Add folder feature to reorganize files
 
 ## License
+[MIT](https://opensource.org/licenses/MIT)
 
 ## Authors and acknowledgments
 This project was created by Danielle Zevitz and Karan Menon for DTIC during the Summer 2020 X-force fellowship program.
